@@ -1,0 +1,10 @@
+.search-crypto{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 1rem;
+    /* width: 60vw; */
+}
+.search{
+    width: 40vw;
+}
