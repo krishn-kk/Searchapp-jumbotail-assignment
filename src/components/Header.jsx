@@ -88,7 +88,8 @@ function Header(props) {
                             value={search}
                             placeholder="Search"
                             onChange={(e) => {
-                                setSearch(e.target.value);
+                                let value = e.target.value;
+                                setSearch(value);
                             }}
                             className="search"
                             autoFocus

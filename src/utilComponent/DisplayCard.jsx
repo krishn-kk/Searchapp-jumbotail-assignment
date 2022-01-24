@@ -55,7 +55,7 @@ export default function DisplayCard(props) {
     if (!props.bookDetails) return "...";
     const saleInfo = props.saleInfo?.listPrice?.amount;
     return (
-        <Card className={classes.root} variant="outlined" elevation={24}>
+        <Card className={classes.root} elevation={1}>
             <div
                 style={{
                     width: "80%",

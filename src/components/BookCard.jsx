@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function BookCard(props) {
     const { book } = props;
     return (
-        <Grid container spacing={1}>
+        <Grid container spacing={4}>
             {book?.map((book) => {
                 return (
                     <Grid
@@ -15,7 +15,7 @@ function BookCard(props) {
                         xs={12}
                         style={{
                             height: "35vh",
-                            marginBottom: "0.4rem",
+                            marginBottom: "1rem",
                         }}
                     >
                         <Link
