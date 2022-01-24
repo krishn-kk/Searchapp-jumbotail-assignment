@@ -45,9 +45,27 @@ function Header(props) {
     return (
         <>
             <Grid container direction="row" justifyContent="center">
-                <Grid item lg={3} sm={12} xs={12} alignItems="">
+                <Grid
+                    item
+                    lg={3}
+                    sm={12}
+                    xs={12}
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <div>
-                        <h1>JumboTail</h1>
+                        <h1
+                            style={{
+                                color: "green",
+                                backgroundColor: "#C0D8C0",
+                                padding:'0.5rem',
+                                borderRadius:'1rem'
+                            }}
+                        >
+                            JumboTail
+                        </h1>
                     </div>
                 </Grid>
                 <Grid item lg={6} sm={6} xs={6}>
@@ -55,7 +73,9 @@ function Header(props) {
                         <TextField
                             value={search}
                             placeholder="Search"
-                            onChange={(e) => setSearch(e.target.value)}
+                            onChange={(e) => {
+                                setSearch(e.target.value);
+                            }}
                             className="search"
                             autoFocus
                             // fullWidth
@@ -74,7 +94,7 @@ function Header(props) {
                     <Menu setOptionSearch={setOptionSearch} menu={menu} />
                 </Grid>
             </Grid>
-            <BookCard book={book}/>
+            <BookCard book={book} />
         </>
     );
 }

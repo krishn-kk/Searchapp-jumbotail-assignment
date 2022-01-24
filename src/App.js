@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import BookDetails from "./components/BookDetails";
 import BookCard from "./components/BookCard";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                         <BookDetails />
                     </Route>
                 </Switch>
+                <Footer />
             </div>
         </div>
     );
