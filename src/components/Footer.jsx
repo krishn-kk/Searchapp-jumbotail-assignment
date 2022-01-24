@@ -44,7 +44,7 @@ const Footer = () => {
                     <li>Corporate information</li>
                 </ul>
             </div>
-            <p>2015 - 2021 Jumbtail, Inc</p>
+            <p>2015 - 2021 Jumbotail, Inc</p>
         </div>
     );
 };
