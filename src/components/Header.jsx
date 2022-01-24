@@ -8,6 +8,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import Menu from "../utilComponent/Menu";
 import BookCard from "./BookCard";
+import Spineer from "../utilComponent/Spineer";
 // import { TextField } from "@material-ui/core";
 
 function Header(props) {
@@ -23,6 +24,7 @@ function Header(props) {
         setOption(value);
     };
     useEffect(() => {
+        setBook([]);
         axios
             .get(
                 `https://www.googleapis.com/books/v1/volumes?q=${search}+${menuItem}`
@@ -30,7 +32,7 @@ function Header(props) {
             .then((res) => {
                 setBook(res.data.items);
             });
-    }, [search]);
+    }, [search, option]);
     console.log(book);
     const menu = [
         ["intitle", "Title"],
@@ -59,16 +61,28 @@ function Header(props) {
                         <h1
                             style={{
                                 color: "green",
-                                backgroundColor: "#C0D8C0",
-                                padding:'0.5rem',
-                                borderRadius:'1rem'
+                                // backgroundColor: "#C0D8C0",
+                                fontWeight:'lighter',
+                                margin: "0.5rem",
+                                paddingLeft: "0.5rem",
+                                paddingRight: "0.5rem",
+                                borderRadius: "1rem",
                             }}
                         >
                             JumboTail
                         </h1>
                     </div>
                 </Grid>
-                <Grid item lg={6} sm={6} xs={6}>
+                <Grid
+                    item
+                    lg={6}
+                    sm={6}
+                    xs={6}
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <div className="search-crypto">
                         <TextField
                             value={search}
@@ -90,11 +104,22 @@ function Header(props) {
                         />
                     </div>
                 </Grid>
-                <Grid item lg={3} sm={6} xs={6}>
+                <Grid
+                    item
+                    lg={3}
+                    sm={6}
+                    xs={6}
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <Menu setOptionSearch={setOptionSearch} menu={menu} />
                 </Grid>
             </Grid>
-            <BookCard book={book} />
+            {search && <BookCard book={book} />}
+            {(!search && <Spineer textMessage />) ||
+                (book.length == 0 && <Spineer spinner />)}
         </>
     );
 }

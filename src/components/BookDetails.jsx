@@ -6,11 +6,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import HTMLReactParser from "html-react-parser";
 import { Card } from "@material-ui/core";
+import Spineer from "../utilComponent/Spineer";
 
 function BookDetails(props) {
     const bookId = useParams();
     const [bookDetails, setBookDetails] = useState([]);
     useEffect(() => {
+        setBookDetails([]);
         axios
             .get(`https://www.googleapis.com/books/v1/volumes/${bookId.bookId}`)
             .then((res) => setBookDetails(res.data))
@@ -19,7 +21,7 @@ function BookDetails(props) {
     console.log(bookDetails, bookId);
     const { volumeInfo, saleInfo } = bookDetails;
     console.log(volumeInfo, saleInfo);
-    if (!bookDetails) return "...";
+    if (bookDetails.length == 0) return <Spineer spinner />;
     return (
         <Grid container>
             <Grid
@@ -64,7 +66,7 @@ function BookDetails(props) {
                 <Card
                     elevation={1}
                     style={{
-                        backgroundColor: "#C0D8C0",
+                        // backgroundColor: "#C0D8C0",
                     }}
                 >
                     <Grid
@@ -75,7 +77,7 @@ function BookDetails(props) {
                         item
                     >
                         <Grid item>
-                            <Typography level="subtitle1">Sale Info</Typography>
+                            <Typography level="subtitle1" style={{color:'green',fontWeight:'800'}}>Sale Info</Typography>
                         </Grid>
                     </Grid>
                     <Grid
@@ -219,7 +221,7 @@ function BookDetails(props) {
                 <Card
                     elevation={1}
                     style={{
-                        backgroundColor: "#C0D8C0",
+                        // backgroundColor: "#C0D8C0",
                     }}
                 >
                     <Grid
@@ -229,8 +231,8 @@ function BookDetails(props) {
                         alignItems="center"
                         item
                     >
-                        <Grid item>
-                            <Typography level="subtitle1">
+                        <Grid item >
+                            <Typography level="subtitle1" style={{color:'green',fontWeight:'800'}}>
                                 Publication Details
                             </Typography>
                         </Grid>
@@ -263,7 +265,7 @@ function BookDetails(props) {
                                 style={{ marginRight: "1rem", fontWeight: 800 }}
                             >
                                 {" "}
-                                {volumeInfo?.authors?.map((res) => res + ",")}
+                                {volumeInfo?.authors?.map((res) => res + " ").toString().substring(0,30)+"..."}
                             </Grid>
                         </Grid>
 

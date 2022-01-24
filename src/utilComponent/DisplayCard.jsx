@@ -16,10 +16,9 @@ const useStyles = makeStyles({
     root: {
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#C0D8C0",
+        backgroundColor: "",
         height: "35vh",
         "&:hover": {
-
             transition: "ease-in-out 0.2s",
             border: "1px solid red",
             boxShadow: "1px grey",
@@ -81,16 +80,16 @@ export default function DisplayCard(props) {
                         style={{
                             display: "flex",
                             flexDirection: "column",
-                            justifyContent:'flex-start',
+                            justifyContent: "flex-start",
                             marginLeft: "0.5rem",
                         }}
                     >
                         <span className={classes.header_title}>
                             <b>{title.trim()?.substring(0, 15) + "..."}</b>
                         </span>
-                        <p style={{ marginLeft: "0.4rem",fontSize:'0.8rem' }}>
-                            {subtitle?.substring(0, 80) + "..." ||
-                                description?.substring(0, 80) + "...."}
+                        <p style={{ marginLeft: "0.4rem", fontSize: "0.8rem" }}>
+                            {description?.substring(0, 100) + "..." ||
+                                subtitle?.substring(0, 100) + "...."}
                         </p>
                     </div>
                 </div>
@@ -100,9 +99,12 @@ export default function DisplayCard(props) {
                         display: "flex",
                         justifyContent: "flex-start",
                         alignItems: "center",
+                        // marginTop:'0.4rem'
                     }}
                 >
-                    <span style={{ marginRight: "0.4rem",marginLeft: "0.4rem", }}>
+                    <span
+                        style={{ marginRight: "0.4rem", marginLeft: "0.4rem" }}
+                    >
                         <AvatarGroup max={2}>
                             {authors?.map((res) => (
                                 <Avatar alt={res}>
@@ -125,6 +127,10 @@ export default function DisplayCard(props) {
                     </span>
                 </div>
             </div>
+            <Divider
+                orientation="vertical"
+                style={{ height: "31vh", marginTop: "2vh", marginBottom: "4vh" }}
+            />
             <div
                 style={{
                     display: "flex",
@@ -134,9 +140,12 @@ export default function DisplayCard(props) {
                     alignContent: "center",
                     textAlign: "center",
                     width: "20%",
-                    color: "#DD4A48",
+                    color: "grey",
                 }}
             >
+                <span style={{ display: "flex" }}>
+                    <GradeIcon /> : {averageRating || "00"}
+                </span>
                 <span style={{ display: "flex" }}>
                     <LanguageIcon /> : {language || "en"}
                 </span>
@@ -144,9 +153,7 @@ export default function DisplayCard(props) {
                     <CurrencyRupeeIcon /> :{" "}
                     {(saleInfo && millify(Number(saleInfo))) || "00"}
                 </span>
-                <span style={{ display: "flex" }}>
-                    <GradeIcon /> : {averageRating || "00"}
-                </span>
+
                 <span style={{ display: "flex" }}>
                     <AutoStoriesIcon /> :{" "}
                     {(pageCount && millify(pageCount)) || "00"}
