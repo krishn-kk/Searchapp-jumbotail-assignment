@@ -88,8 +88,8 @@ export default function DisplayCard(props) {
                             <b>{title.trim()?.substring(0, 15) + "..."}</b>
                         </span>
                         <p style={{ marginLeft: "0.4rem", fontSize: "0.8rem" }}>
-                            {description?.substring(0, 100) + "..." ||
-                                subtitle?.substring(0, 100) + "...."}
+                            {description?.substring(0, 80) + "..." ||
+                                subtitle?.substring(0, 80) + "...."}
                         </p>
                     </div>
                 </div>
