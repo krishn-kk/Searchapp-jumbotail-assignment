@@ -4,6 +4,24 @@ Steps to start locally this project.\
 1.npm install.\
 2.npm start.
 
+Hosted Online : https://search-app-7b6fb.firebaseapp.com/
+
+# Problem Statement :
+
+ Book search application
+Let us build an application which will allow users to search books available in google
+books.
+## Functional requirements
+    - As a user, I should be able to enter the keyword to search and search results
+    should be displayed.
+    - As a user, I should be able to click on a specific book, details of the selected
+    book should be displayed
+    Not functional requirements
+    - Both the screens should be available on a different route
+    APIs provided by google books
+    - https://www.googleapis.com/books/v1/volumes?q=business
+- https://www.googleapis.com/books/v1/volumes?q=test
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
